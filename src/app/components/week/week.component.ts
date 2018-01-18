@@ -43,15 +43,47 @@ getDayOfWeek(dow:number):string{
       return "Saturday"
   }
 }
+getMonth(dd:number){
+  switch (dd) {
+    case 0:
+    return "January";
+      case 1:
+      return "February"
+      case 2:
+      return "March"
+      case 3:
+      return "April"
+      case 4:
+      return "May"
+      case 5:
+      return "June"
+      case 6:
+      return "July"
+      case 7:
+      return "August"
+      case 8:
+      return "September"
+      case 9:
+      return "October"
+      case 10:
+      return "November"
+      case 11:
+      return "December"
+      
+  }
+}
   constructor() {
     let currentYear = new Date(Date.now()).getFullYear()
     let startDate = new Date(2018,2,3);
     let endDate = new Date(currentYear+1,0,1);
 
     for (var d = startDate; d < endDate; d.setDate(d.getDate() + 1)) {
+        let  dd = new Date(d);
         this.ds.push({
-          DOW:this.getDayOfWeek(new Date(d).getDay()),
-          date:new Date(d).toLocaleDateString()
+          DOW:this.getDayOfWeek(dd.getDay()),
+          date:dd.toLocaleDateString(),
+          cleanDate:dd.getDate(),
+          cleanMonth:this.getMonth(dd.getMonth())
         });
     }
         
