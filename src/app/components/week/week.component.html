@@ -1,0 +1,19 @@
+
+  <div *ngFor="let item of weeks">
+    <div class="row">
+     
+        <app-day [DispDay]="item.QWeek"></app-day>
+        <app-day [DispDay]="item.Week"></app-day>
+        <app-day [DispDay]="item.Saturday"></app-day>
+        <app-day [DispDay]="item.Sunday"></app-day>
+        <app-day [DispDay]="item.Monday"></app-day>
+        <app-day [DispDay]="item.Tuesday"></app-day>
+        <app-day [DispDay]="item.Wednesday"></app-day>
+        <app-day [DispDay]="item.Thursday"></app-day>
+        <app-day [DispDay]="item.Friday"></app-day>
+
+    </div>
+  </div>
+
+
+
