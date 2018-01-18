@@ -1,18 +1,47 @@
 
 <div class="container-fluid">
-  <div class="row-fluid">
-    <div class="col-xs-3"><app-week></app-week></div>
-    <div class="col-xs-3"><app-week></app-week></div>
-    <div class="col-xs-3"><app-week></app-week></div>
-    <div class="col-xs-3"><app-week></app-week></div>
+  <div class="row">
+
+    <div class="col-xs-12 col-s-6 col-md-3"><app-week Month="February"></app-week></div>
+    <div class="col-xs-12 col-s-6 col-md-3"><app-week Month="May"></app-week></div>
+    <div class="col-xs-12 col-s-6 col-md-3"><app-week Month="August"></app-week></div>
+    <div class="col-xs-12 col-s-6 col-md-3"><app-week Month="November"></app-week></div>
   </div>
+  <div class="row">
+      <div class="col-xs-6 col-md-3">
+        <app-week Month="March"></app-week>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <app-week Month="June"></app-week>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <app-week Month="September"></app-week>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <app-week Month="December"></app-week>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+          <app-week Month="April"></app-week>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <app-week Month="July"></app-week>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <app-week Month="October"></app-week>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <app-week Month="January"></app-week>
+        </div>
+      </div>
      <!--<app-day [DispDay]="DisplayDate"></app-day> -->
     <div class="row">
     <div style="text-align:center;" class="col-xs-3">
         <span style="border: 1px solid">February</span>
         <table>
             <tr>
-              <th>Quarter</th>
               <th>QWeek</th>
               <th>Week</th>
               <th>Saturday</th>
@@ -22,12 +51,8 @@
               <th>Wednesday</th>
               <th>Thursday</th>
               <th>Friday</th>
-              <th>Month</th>
             </tr>
             <tr >
-              <!---->
-             
-              <td style="background:lightblue; border:1px solid">Q1</td>
               <td style="background: gray; border:1px solid">1</td>
               <td style="background:gray; border:1px solid">1</td>
               <td style="border: 1px solid">3</td>

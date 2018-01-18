@@ -1,7 +1,8 @@
-
+<div class="col-xs-12 text-center">{{Month}}</div>
   <div *ngFor="let item of weeks">
     <div class="row">
-     
+      
+        <div class="col-xs-2"></div>
         <app-day [DispDay]="item.QWeek"></app-day>
         <app-day [DispDay]="item.Week"></app-day>
         <app-day [DispDay]="item.Saturday"></app-day>
@@ -11,9 +12,12 @@
         <app-day [DispDay]="item.Wednesday"></app-day>
         <app-day [DispDay]="item.Thursday"></app-day>
         <app-day [DispDay]="item.Friday"></app-day>
-
     </div>
   </div>
 
 
+<div *ngFor="let item of ds">
+  
+  {{item.DOW}} {{item.date}}
 
+</div>
