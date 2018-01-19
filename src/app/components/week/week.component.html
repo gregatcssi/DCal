@@ -1,7 +1,7 @@
-<div class="col-xs-12 text-center">{{Month}}</div>
   <div *ngFor="let item of weeks">
+    <div *ngIf="item.newQuarter"><div class="row text-center"><div class="col-xs-12"></div>{{item.QuarterName}}</div></div>
+    <div *ngIf="item.newMonth"><div class="row text-center"><div class="col-xs-12">{{item.MonthName}}</div></div></div>
     <div class="row">
-      
         <div class="col-xs-2"></div>
         <app-day [DispDay]="item.QWeek"></app-day>
         <app-day [DispDay]="item.Week"></app-day>
@@ -14,6 +14,6 @@
         <app-day [DispDay]="item.Friday"></app-day>
     </div>
   </div>
-<div *ngFor="let item of ds">
+<!-- <div *ngFor="let item of ds">
   {{item.cleanMonth}} {{item.date}}  {{item.cleanDate}} {{item.DOW}}
-</div>
+</div> -->

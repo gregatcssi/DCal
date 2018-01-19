@@ -106,61 +106,78 @@ export class WeekComponent implements OnInit {
   }
   constructor() {
     let currentYear = new Date(Date.now()).getFullYear()
-    let startDate = new Date(2017, 0, 1);
-    let endDate = new Date(currentYear + 1, 0, 1);
+    let startDate = new Date(2017, 1, 4);
+    let endDate = new Date(currentYear+1, 1, 1);
     for (var d = startDate; d < endDate; d.setDate(d.getDate() + 1)) {
       let dd = new Date(d);
       this.ds.push({
         DOW: this.getDayOfWeek(dd.getDay()),
         date: dd.toLocaleDateString(),
         cleanDate: dd.getDate(),
-        cleanMonth: this.getMonth(dd.getMonth())
+        cleanMonth: this.getMonth(dd.getMonth()),
+        cleanYear:dd.getFullYear()
       });
     }
 
-    this.weeks = [{
-      "QWeek": this.buildDay("Q", "5px", "lightgray"),
-      "Week": this.buildDay("W", "5px", "lightgray"),
-      "Saturday": this.buildDay("S", "5px", "lightgray"),
-      "Sunday": this.buildDay("S", "5px", "lightgray"),
-      "Monday": this.buildDay("M", "5px", "lightgray"),
-      "Tuesday": this.buildDay("T", "5px", "lightgray"),
-      "Wednesday": this.buildDay("W", "5px", "lightgray"),
-      "Thursday": this.buildDay("T", "5px", "lightgray"),
-      "Friday": this.buildDay("F", "5px", "lightgray"),
-    }];
+    this.weeks = [];
     var qId = 1;
+    var wId =1;
     for (let index = 0; index < this.ds.length; index +=7) 
     {
-
+      
       try{
+        if(this.ds[index+6].cleanDate<=7){
+          var isNew =  false
+          var qn ="";
+            if (this.ds[index + 6].cleanMonth == "February"){isNew=true;qn="Q1";}
+            if (this.ds[index + 6].cleanMonth == "May"){isNew=true;qn="Q2";}
+            if (this.ds[index + 6].cleanMonth == "August"){isNew=true;qn="Q3";}
+            if (this.ds[index + 6].cleanMonth == "November"){isNew=true;qn="Q4";}
+            
+          this.weeks.push({
+            "QWeek": this.buildDay("Q", "5px", "lightgray"),
+            "Week": this.buildDay("W", "5px", "lightgray"),
+            "Saturday": this.buildDay("S", "5px", "lightgray"),
+            "Sunday": this.buildDay("S", "5px", "lightgray"),
+            "Monday": this.buildDay("M", "5px", "lightgray"),
+            "Tuesday": this.buildDay("T", "5px", "lightgray"),
+            "Wednesday": this.buildDay("W", "5px", "lightgray"),
+            "Thursday": this.buildDay("T", "5px", "lightgray"),
+            "Friday": this.buildDay("F", "5px", "lightgray"),
+            "newMonth":true,
+            "MonthName":this.ds[index+6].cleanMonth+" "+this.ds[index+6].cleanYear,
+            "newQuarter": isNew,
+            "QuarterName":qn
+            });
+        }
+        if(wId===53){wId=1}
+        if(qId===14){qId=1}
       this.weeks.push({
-        "QWeek": this.buildDay(qId.toString(), "5px", "lightgray"),
-        "Week": this.buildDay(qId.toString(), "5px", "lightgray"),
+        "QWeek":{
+                  "Color": "lightgray",
+                  "DayNumber": qId,
+                  "FSize": "5px"
+              },
+        "Week": {
+          "Color": "lightgray",
+          "DayNumber": wId,
+          "FSize": "5px"
+      },
         "Saturday": this.buildDay(this.ds[index].date, "5px", "pink"),
         "Sunday": this.buildDay(this.ds[index+1].date, "5px", "pink"),
         "Monday": this.buildDay(this.ds[index+2].date, "5px", "white"),
         "Tuesday": this.buildDay(this.ds[index+3].date, "5px", "white"),
         "Wednesday": this.buildDay(this.ds[index+4].date, "5px", "white"),
         "Thursday": this.buildDay(this.ds[index+5].date, "5px", "white"),
-        "Friday": this.buildDay(this.ds[index+6].date, "5px", "white")
+        "Friday": this.buildDay(this.ds[index+6].date, "5px", "white"),
+        "newMonth":false
       });
-      if(this.ds[index+6].cleanDate<=7){
-        this.weeks.push({
-          "QWeek": this.buildDay("Q", "5px", "lightgray"),
-          "Week": this.buildDay("W", "5px", "lightgray"),
-          "Saturday": this.buildDay("S", "5px", "lightgray"),
-          "Sunday": this.buildDay("S", "5px", "lightgray"),
-          "Monday": this.buildDay("M", "5px", "lightgray"),
-          "Tuesday": this.buildDay("T", "5px", "lightgray"),
-          "Wednesday": this.buildDay("W", "5px", "lightgray"),
-          "Thursday": this.buildDay("T", "5px", "lightgray"),
-          "Friday": this.buildDay("F", "5px", "lightgray"),
-        });
-      }
+
+      
       }catch(ex){
         console.log(ex);
       }
+      wId++;
       qId++;
     }
 
