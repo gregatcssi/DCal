@@ -136,7 +136,7 @@ export class WeekComponent implements OnInit {
             
           this.weeks.push({
             "QWeek": this.buildDay("Q", "5px", "lightgray"),
-            "Week": this.buildDay("W", "5px", "lightgray"),
+            "Week": this.buildDay("W", "5px", "lightgray"), 
             "Saturday": this.buildDay("S", "5px", "lightgray"),
             "Sunday": this.buildDay("S", "5px", "lightgray"),
             "Monday": this.buildDay("M", "5px", "lightgray"),

@@ -16,7 +16,7 @@ export class DayComponent implements OnInit {
     var year = dateObj.getUTCFullYear();
     var newdate = month + "/" + day + "/" + year;
     if(this.DispDay.FullDate==newdate){
-      this.DispDay.Color="green"
+      this.DispDay.Color="green" 
     }
   }
 
