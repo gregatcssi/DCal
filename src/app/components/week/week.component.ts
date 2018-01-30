@@ -107,7 +107,7 @@ export class WeekComponent implements OnInit {
   constructor() {
     let currentYear = new Date(Date.now()).getFullYear()
     let startDate = new Date(2017, 1, 4);
-    let endDate = new Date(currentYear+1, 1, 1);
+    let endDate = new Date(currentYear+1, 2, 1);
     for (var d = startDate; d < endDate; d.setDate(d.getDate() + 1)) {
       let dd = new Date(d);
       this.ds.push({
@@ -135,15 +135,15 @@ export class WeekComponent implements OnInit {
             if (this.ds[index + 6].cleanMonth == "November"){isNew=true;qn="Q4";}
             
           this.weeks.push({
-            "QWeek": this.buildDay("Q", "5px", "lightgray"),
-            "Week": this.buildDay("W", "5px", "lightgray"), 
-            "Saturday": this.buildDay("S", "5px", "lightgray"),
-            "Sunday": this.buildDay("S", "5px", "lightgray"),
-            "Monday": this.buildDay("M", "5px", "lightgray"),
-            "Tuesday": this.buildDay("T", "5px", "lightgray"),
-            "Wednesday": this.buildDay("W", "5px", "lightgray"),
-            "Thursday": this.buildDay("T", "5px", "lightgray"),
-            "Friday": this.buildDay("F", "5px", "lightgray"),
+            "QWeek": this.buildDay("Q", "5px", "darkgray"),
+            "Week": this.buildDay("W", "5px", "darkgray"), 
+            "Saturday": this.buildDay("S", "5px", "darkgray"),
+            "Sunday": this.buildDay("S", "5px", "darkgray"),
+            "Monday": this.buildDay("M", "5px", "darkgray"),
+            "Tuesday": this.buildDay("T", "5px", "darkgray"),
+            "Wednesday": this.buildDay("W", "5px", "darkgray"),
+            "Thursday": this.buildDay("T", "5px", "darkgray"),
+            "Friday": this.buildDay("F", "5px", "darkgray"),
             "newMonth":true,
             "MonthName":this.ds[index+6].cleanMonth+" "+this.ds[index+6].cleanYear,
             "newQuarter": isNew,
@@ -154,22 +154,22 @@ export class WeekComponent implements OnInit {
         if(qId===14){qId=1}
       this.weeks.push({
         "QWeek":{
-                  "Color": "lightgray",
+                  "Color": "darkgray",
                   "DayNumber": qId,
                   "FSize": "5px"
               },
         "Week": {
-          "Color": "lightgray",
+          "Color": "darkgray",
           "DayNumber": wId,
           "FSize": "5px"
       },
-        "Saturday": this.buildDay(this.ds[index].date, "5px", "pink"),
-        "Sunday": this.buildDay(this.ds[index+1].date, "5px", "pink"),
-        "Monday": this.buildDay(this.ds[index+2].date, "5px", "white"),
-        "Tuesday": this.buildDay(this.ds[index+3].date, "5px", "white"),
-        "Wednesday": this.buildDay(this.ds[index+4].date, "5px", "white"),
-        "Thursday": this.buildDay(this.ds[index+5].date, "5px", "white"),
-        "Friday": this.buildDay(this.ds[index+6].date, "5px", "white"),
+        "Saturday": this.buildDay(this.ds[index].date, "5px", "black"),
+        "Sunday": this.buildDay(this.ds[index+1].date, "5px", "black"),
+        "Monday": this.buildDay(this.ds[index+2].date, "5px", "black"),
+        "Tuesday": this.buildDay(this.ds[index+3].date, "5px", "black"),
+        "Wednesday": this.buildDay(this.ds[index+4].date, "5px", "black"),
+        "Thursday": this.buildDay(this.ds[index+5].date, "5px", "black"),
+        "Friday": this.buildDay(this.ds[index+6].date, "5px", "black"),
         "newMonth":false
       });
 
